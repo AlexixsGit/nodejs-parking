@@ -1,0 +1,46 @@
+use parking
+
+
+db.admin.insertMany(
+[{
+	"_id":"1",
+	"hours_for_a_day":"9",
+	"capacity":"10",
+	"vehicle_type":"1",
+	"engine_capacity":"500",
+	"restrict_plaque_letter":"A"
+},{
+	"_id":"2",
+	"hours_for_a_day":"9",
+	"capacity":"20",
+	"vehicle_type":"2",
+	"engine_capacity":"",
+	"restrict_plaque_letter":"A"
+}]
+)
+
+db.price.insertMany([{
+	"_id":"1",
+	"vehicle_type": "1",
+	"hour_price": "500",
+	"day_price": "4000",
+	"high_engine_price": "2000"
+}, {
+	"_id":"2",
+	"vehicle_type": "2",
+	"hour_price": "1000",
+	"day_price": "8000",
+	"high_engine_price": "0"
+}])
+
+db.vehicle_type.insertMany([{
+	"_id": "1",
+	"description": "Moto"
+}, {
+	"_id": "2",
+	"description": "Carro"
+}]
+)
+
+
+
