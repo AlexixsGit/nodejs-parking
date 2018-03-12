@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/AlexixsGit/nodejs-parking#readme",
   "dependencies": {
+    "app-module-path": "^2.2.0",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "json-body": "0.0.0",
     "mongodb": "^3.0.4",
