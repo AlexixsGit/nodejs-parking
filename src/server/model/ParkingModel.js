@@ -1,20 +1,16 @@
 'use strict';
 
-let Entity = require('../model/Entity');
 let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
-class ParkingSchema extends Entity {
-    structure() {
-        this.structure();
-        this.def(Number, 'vehicle_type');
-        this.def(String, 'plaque');
-        this.def(Date, 'entry_date');
-        this.def(String, 'entry_hour');
-        this.def(Date, 'departure_date');
-        this.def(String, 'departure_hour');
-        this.def(Number, 'engine_capacity');
-    }
-}
+let ParkingSchema = new Schema({
+    vehicleType: Number,
+    plaque: String,
+    entryDate: Date,
+    entryHour: String,
+    departureDate: Date,
+    departureHour: String,
+    engineCapacity: Number
+}, { collection: 'parking' });
 
-let parkingSchema = mongoose.Schema(ParkingSchema, { collection: 'parking' });
-module.exports = mongoose.model('parking', parkingSchema);
+module.exports = mongoose.model('ParkingModel', ParkingSchema);

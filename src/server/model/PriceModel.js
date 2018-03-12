@@ -1,7 +1,7 @@
 'use strict';
 
-let Entity = require("../model/Entity")
 let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
 class PriceSchema extends Entity {
     structure() {
@@ -12,5 +12,12 @@ class PriceSchema extends Entity {
         this.def(Number, 'high_engine_price');
     }
 }
-let priceSchema = mongoose.Schema(PriceSchema, { collection: 'price' });
-module.exports = mongoose.model('price', priceSchema);
+
+let PriceSchema = new Schema({
+    vehicleType: Number,
+    hourPrice: Number,
+    dayPrice: Number,
+    highEnginePrice: Number
+}, { collection: 'price' });
+
+module.exports = mongoose.model('PriceModel', PriceSchema);

@@ -1,6 +1,5 @@
 'use strict';
 
-let Entity = require("../model/Entity");
 let mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 

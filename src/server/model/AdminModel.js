@@ -1,16 +1,13 @@
 'use strict';
 
-let Entity = require("../model/Entity");
 let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
-class AdminSchema extends Entity {
-    structure() {
-        super.structure();
-        this.def(Number, 'hoursForADay');
-        this.def(Number, 'capacity');
-        this.def(Number, 'vehicleType');
-        this.def(String, 'restrictPlaqueLetter');
-    }
-}
-let adminSchema = mongoose.Schema(AdminSchema, { collection: 'admin' });
-module.exports = mongoose.model('admin', adminSchema);
+let AdminSchema = new Schema({
+    hoursForADay: Number,
+    capacity: Number,
+    vehicleType: Number,
+    restrictPlaqueLetter: String
+}, { collection: 'admin' });
+
+module.exports = mongoose.model('AdminModel', AdminSchema);

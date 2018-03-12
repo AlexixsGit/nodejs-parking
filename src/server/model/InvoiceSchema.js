@@ -1,21 +1,17 @@
 'use strict';
 
-let Entity = require('../model/Entity');
 let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 
-class InvoiceSchema extends Entity {
-    structure() {
-        this.structure();
-        this.def(String, 'plaque');
-        this.def(String, 'desc_vehicle_type');
-        this.def(Number, 'engine_capacity');
-        this.def(String, 'employee');
-        this.def(Number, 'iva');
-        this.def(Number, 'additional_cost');
-        this.def(Number, 'subtotal');
-        this.def(Number, 'total');
-    }
-}
+let InvoiceSchema = new Schema({
+    plaque: String,
+    descVehicleType: String,
+    engineCapacity: Number,
+    employee: String,
+    iva: Number,
+    additionalCost: Number,
+    subtotal: Number,
+    total: Number
+}, { collection: 'invoice' });
 
-let invoiceSchema = mongoose.Schema(InvoiceSchema, { collection: 'invoice' });
-module.exports = mongoose.model('invoice', invoiceSchema);
+module.exports = mongoose.model('InvoiceModel', InvoiceSchema);

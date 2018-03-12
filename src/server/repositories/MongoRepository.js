@@ -29,7 +29,6 @@ class MongoRepository {
      */
     static find(model, query) {
         return new Promise((resolve, reject) => {
-
             model.find(query, (err, res) => {
                 if (err) {
                     reject(new Error(err));
@@ -127,4 +126,3 @@ class MongoRepository {
         })
     }
 }
-
