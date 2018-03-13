@@ -5,10 +5,13 @@ const express = require('express');
 const app = express();
 const vehicleTypeController = require('../server/controllers/vehicleTypeController');
 const AdminController = require('../server/controllers/adminController');
+const ParkinController = require('../server/controllers/parkingController');
 
 app.use('/vehicleTypeList', vehicleTypeController);
 
 app.use('/adminList', AdminController);
+
+app.use('/enterVehicle', ParkinController);
 
 function init() {
     let server = app.listen(8181, () => {
