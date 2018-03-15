@@ -12,6 +12,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.post('/', (req, res) => {
 
     if (!ParkingService.validateRequiredFields(req.body)) {
+        return res.sendStatus(403);
     }
     return res.status(200).jsonp(res.body);
 })
