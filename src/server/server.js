@@ -11,7 +11,7 @@ app.use('/vehicleTypeList', vehicleTypeController);
 
 app.use('/adminList', AdminController);
 
-app.use('/enterVehicle', ParkinController);
+app.use('/parking', ParkinController);
 
 function init() {
     let server = app.listen(8181, () => {
