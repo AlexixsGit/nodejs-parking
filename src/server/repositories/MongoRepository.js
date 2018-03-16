@@ -2,26 +2,11 @@
 
 //Mongo client
 let mongoose = require("mongoose");
-
-
+mongoose.connect("mongodb://localhost/parking");
 /**
  * Class to manage DML statements to the mongo db
  */
 class MongoRepository {
-
-    /**
-     * Connect to the database
-     */
-    static connect() {
-        mongoose.connect("mongodb://localhost/parking", err => {
-            if (err) {
-                console.log("Couldn't connect to the database");
-            } else {
-                console.log("Connected to the database")
-            }
-        });
-    }
-
     /**
      * Method to find records with the given query
      * @param {Mongoose model} model 
@@ -117,6 +102,23 @@ class MongoRepository {
     static deleteMany(model, query) {
         return new Promise((resolve, reject) => {
             model.deleteMany(query, (err, res) => {
+                if (err) {
+                    reject(new Error(err));
+                } else {
+                    resolve(res);
+                }
+            }).catch(reject);
+        })
+    }
+
+    /**
+     * Count records with given query
+     * @param {Mongoose model} model 
+     * @param {json} query 
+     */
+    static count(model, query) {
+        return new Promise((resolve, reject) => {
+            model.count(query, (err, res) => {
                 if (err) {
                     reject(new Error(err));
                 } else {
